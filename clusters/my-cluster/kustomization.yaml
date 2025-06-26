@@ -1,0 +1,4 @@
+resources:
+  - flux-system                    # сами контролёры Flux
+  - hello-configmap.yaml           # наш ConfigMap-пример
+  - ../../apps/nginx/deployment.yaml  # Deployment nginx
