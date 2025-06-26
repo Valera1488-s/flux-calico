@@ -1,0 +1,20 @@
+apiVersion: apps/v1            # версия API для Deployment
+kind: Deployment               # тип объекта — Deployment
+metadata:
+  name: nginx-demo             # имя Deployment
+  namespace: default           # где будет жить
+spec:
+  replicas: 1                  # сколько Pod'ов
+  selector:                    # как находить свои Pod'ы
+    matchLabels:
+      app: nginx-demo
+  template:                    # шаблон создаваемых Pod'ов
+    metadata:
+      labels:
+        app: nginx-demo
+    spec:
+      containers:
+      - name: nginx            # имя контейнера
+        image: nginx:1.25      # образ
+        ports:
+        - containerPort: 80    # порт внутри Pod
